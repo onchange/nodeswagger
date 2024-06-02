@@ -17,7 +17,7 @@
           "tags": ["Hello"],
           "responses": {
             "200": {
-              "description": "A JSON object with hello message"
+              "description": "JSON object と hello messageを出力"
             }
           }
         }
