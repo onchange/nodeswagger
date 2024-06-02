@@ -1,0 +1,24 @@
+{
+  "name": "nodeswagger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onchange/nodeswagger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onchange/nodeswagger/issues"
+  },
+  "homepage": "https://github.com/onchange/nodeswagger#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
