@@ -40,7 +40,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  * @swagger
  * /api/hello:
  *   get:
- *     summary: Returns a hello message
+ *     summary: Returns a hello messageですよえ
  *     tags: [Hello]
  *     responses:
  *       200:

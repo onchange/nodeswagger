@@ -13,7 +13,7 @@
     "paths": {
       "/api/hello": {
         "get": {
-          "summary": "Returns a hello message",
+          "summary": "Returns a hello messageああああ",
           "tags": ["Hello"],
           "responses": {
             "200": {
