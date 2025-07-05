@@ -1,93 +1,93 @@
-# Node.js Express API with Swagger Documentation
+# Swagger ドキュメント付き Node.js Express API
 
-A modular Express.js API with comprehensive Swagger documentation, featuring both basic endpoints and user management functionality.
+基本的なエンドポイントとユーザー管理機能を備えた、包括的なSwaggerドキュメントを持つモジュラーなExpress.js APIです。
 
-## 🚀 Features
+## 🚀 機能
 
-- **Modular Architecture**: Clean separation of concerns with dedicated modules for routes, services, middleware, and configuration
-- **Swagger Documentation**: Interactive API documentation with OpenAPI 3.0 specification
-- **User Management**: Complete CRUD operations for user entities
-- **Input Validation**: Comprehensive request validation middleware
-- **Error Handling**: Centralized error handling with meaningful error responses
-- **Health Checks**: Built-in health monitoring endpoints
-- **Environment Configuration**: Flexible configuration management
+- **モジュラーアーキテクチャ**: ルート、サービス、ミドルウェア、設定用の専用モジュールによる明確な関心事の分離
+- **Swagger ドキュメント**: OpenAPI 3.0 仕様を使用したインタラクティブな API ドキュメント
+- **ユーザー管理**: ユーザーエンティティの完全な CRUD 操作
+- **入力検証**: 包括的なリクエスト検証ミドルウェア
+- **エラーハンドリング**: 意味のあるエラーレスポンスを持つ集中的なエラーハンドリング
+- **ヘルスチェック**: 組み込みのヘルス監視エンドポイント
+- **環境設定**: 柔軟な設定管理
 
-## 📁 Project Structure
+## 📁 プロジェクト構造
 
 ```
 ├── src/
 │   ├── config/
-│   │   ├── environment.js      # Environment configuration
-│   │   └── swagger.js          # Swagger configuration
+│   │   ├── environment.js      # 環境設定
+│   │   └── swagger.js          # Swagger設定
 │   ├── middleware/
-│   │   ├── errorHandler.js     # Error handling middleware
-│   │   └── validation.js       # Input validation middleware
+│   │   ├── errorHandler.js     # エラーハンドリングミドルウェア
+│   │   └── validation.js       # 入力検証ミドルウェア
 │   ├── routes/
-│   │   ├── basicRoutes.js      # Basic API endpoints
-│   │   ├── userRoutes.js       # User management endpoints
-│   │   └── healthRoutes.js     # Health check endpoints
+│   │   ├── basicRoutes.js      # 基本的なAPIエンドポイント
+│   │   ├── userRoutes.js       # ユーザー管理エンドポイント
+│   │   └── healthRoutes.js     # ヘルスチェックエンドポイント
 │   ├── services/
-│   │   └── userService.js      # User business logic
-│   ├── app.js                  # Express application factory
-│   ├── server.js               # Basic API server
-│   └── userServer.js           # User management server
-├── index.js                    # Legacy basic API (kept for compatibility)
-├── index2.js                   # Legacy user API (kept for compatibility)
+│   │   └── userService.js      # ユーザービジネスロジック
+│   ├── app.js                  # Express アプリケーションファクトリー
+│   ├── server.js               # 基本的なAPIサーバー
+│   └── userServer.js           # ユーザー管理サーバー
+├── index.js                    # レガシー基本API（互換性のため保持）
+├── index2.js                   # レガシーユーザーAPI（互換性のため保持）
 └── package.json
 ```
 
-## 🛠 Installation
+## 🛠 インストール
 
-1. Clone the repository:
+1. リポジトリをクローン:
 ```bash
 git clone https://github.com/onchange/nodeswagger.git
 cd nodeswagger
 ```
 
-2. Install dependencies:
+2. 依存関係をインストール:
 ```bash
 npm install
 ```
 
-## 🚀 Usage
+## 🚀 使用方法
 
-### Start the Basic API Server
+### 基本的なAPIサーバーの起動
 ```bash
 npm start
-# or
-npm run dev  # with nodemon for development
+# または
+npm run dev  # 開発用にnodemonを使用
 ```
-Server will run on `http://localhost:3000`
+サーバーは `http://localhost:3000` で実行されます
 
-### Start the User Management API Server
+### ユーザー管理APIサーバーの起動
 ```bash
 npm run start:users
-# or
-npm run dev:users  # with nodemon for development
+# または
+npm run dev:users  # 開発用にnodemonを使用
 ```
-Server will run on `http://localhost:3001`
+サーバーは `http://localhost:3001` で実行されます
 
-### Legacy Servers (for compatibility)
+### レガシーサーバー（互換性のため）
 ```bash
-npm run start:legacy   # Original index.js
-npm run start:legacy2  # Original index2.js
+npm run start:legacy   # 元のindex.js
+npm run start:legacy2  # 元のindex2.js
 ```
 
-## 📖 API Documentation
+## 📖 API ドキュメント
 
-Once the server is running, access the interactive Swagger documentation:
+サーバーが起動したら、インタラクティブなSwaggerドキュメントにアクセスできます：
 
-- Basic API: `http://localhost:3000/api-docs`
-- User Management API: `http://localhost:3001/api-docs`
+- 基本的なAPI: `http://localhost:3000/api-docs`
+- ユーザー管理API: `http://localhost:3001/api-docs`
 
-## 🔧 Configuration
+## 🔧 設定
 
-Environment variables can be used to configure the application:
+環境変数を使用してアプリケーションを設定できます：
 
 ```bash
-PORT=3000                    # Basic API port
-USER_API_PORT=3001          # User Management API port
-NODE_ENV=development        # Environment (development/production)
+PORT=3000                    # 基本的なAPIポート
+USER_API_PORT=3001          # ユーザー管理APIポート
+NODE_ENV=development        # 環境（development/production）
 ```
 
 ## 📋 API Endpoints
