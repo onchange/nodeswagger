@@ -1,13 +1,11 @@
 {
   "name": "nodeswagger",
   "version": "1.0.0",
-  "description": "Express API with Swagger documentation - Refactored modular structure",
+  "description": "Express API with Swagger documentation - Clean modular structure",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "start:users": "node src/userServer.js",
-    "start:legacy": "node index.js",
-    "start:legacy2": "node index2.js",
     "dev": "nodemon src/server.js",
     "dev:users": "nodemon src/userServer.js"
   },
