@@ -1,149 +1,174 @@
-# nodeswagger
+# NodeSwagger Client
 
-Node.js + Express + Swagger を使用したAPIドキュメント自動生成のデモプロジェクト
+Node.js + Express + Swagger APIと連携するReactフロントエンドクライアント
 
 ## 概要
 
-このプロジェクトは、Node.js と Express.js を使用して RESTful API を構築し、Swagger を使用してAPI ドキュメントを自動生成する方法を示すサンプルアプリケーションです。
+このプロジェクトは、[NodeSwagger](../README.md) APIサーバーと連携するReactベースのフロントエンドクライアントです。APIとの通信をテストし、レスポンスを視覚的に確認できるWebアプリケーションです。
 
 ## 主な特徴
 
-- **Express.js**: 高速で軽量なWebアプリケーションフレームワーク
-- **Swagger UI**: インタラクティブなAPIドキュメント
-- **swagger-jsdoc**: JSDocコメントからSwagger仕様を生成
-- **swagger-ui-express**: Express.jsでSwagger UIを提供
+- **React 18**: 最新のReactフレームワーク
+- **モダンUI**: レスポンシブデザインとモダンなスタイリング
+- **API連携**: NodeSwagger APIとのリアルタイム通信
+- **エラーハンドリング**: 適切なエラーメッセージ表示
+- **状態管理**: React Hooksを使用した状態管理
 
 ## 必要な環境
 
-- Node.js (v14 以上推奨)
+- Node.js (v16 以上推奨)
 - npm または yarn
+- **NodeSwagger APIサーバー** (親ディレクトリで起動)
 
-## インストール
+## インストールと起動
 
-1. このリポジトリをクローンします：
-```bash
-git clone https://github.com/onchange/nodeswagger.git
-cd nodeswagger
-```
+### 1. 依存関係をインストール
 
-2. 依存関係をインストールします：
 ```bash
 npm install
 ```
 
-## 使用方法
-
-### サーバーの起動
+### 2. 開発サーバーを起動
 
 ```bash
 npm start
 ```
 
-または
+アプリケーションが `http://localhost:3001` で起動します。
+
+### 3. NodeSwagger APIサーバーを起動
+
+別のターミナルで親ディレクトリに移動してAPIサーバーを起動：
 
 ```bash
-node index.js
+cd ..
+npm start
 ```
 
-サーバーが起動すると、以下のメッセージが表示されます：
-```
-Server is running at http://localhost:3000
-```
+NodeSwagger APIサーバーが `http://localhost:3000` で起動します。
 
-### API エンドポイント
+## 使用方法
 
-#### Hello API
-- **URL**: `http://localhost:3000/api/hello`
-- **メソッド**: GET
-- **説明**: 簡単なhelloメッセージを返します
+### 基本的な使い方
 
-**レスポンス例**:
-```json
-{
-  "message": "Hello, world!"
-}
-```
+1. **API接続確認**: 「接続確認」ボタンでNodeSwagger APIサーバーとの接続状況を確認
+2. **API テスト**: 「Hello APIを呼び出す」ボタンでAPIエンドポイントをテスト
+3. **レスポンス確認**: APIからのレスポンスメッセージを確認
+4. **エラーハンドリング**: 接続エラーやAPIエラーの適切な表示
 
-### API ドキュメント
+### 機能詳細
 
-Swagger UI を使用してAPIドキュメントを確認できます：
+#### API接続状況
+- リアルタイムでAPIサーバーの状態を確認
+- 接続成功/失敗の視覚的な表示
+- 手動での接続確認機能
 
-- **Swagger UI**: `http://localhost:3000/api-docs`
+#### API テスト
+- Hello APIエンドポイントの呼び出し
+- ローディング状態の表示
+- レスポンスデータの表示
+- エラーメッセージの表示
+
+#### 開発者向け情報
+- API URL と エンドポイント情報
+- Swagger UI へのリンク
+- 使用方法の説明
 
 ## プロジェクト構造
 
 ```
-nodeswagger/
-├── index.js          # メインのサーバーファイル
-├── package.json      # プロジェクトの依存関係と設定
-├── README.md         # このファイル
-├── docs/            # ドキュメントファイル
-│   ├── index.html   # Swagger UIのHTMLファイル
-│   └── swagger.json # Swagger仕様のJSONファイル
-└── .gitignore       # Gitで無視するファイルの設定
+nodeswagger-client/
+├── public/
+│   └── index.html        # メインHTMLファイル
+├── src/
+│   ├── App.js           # メインReactコンポーネント
+│   ├── App.css          # スタイルシート
+│   └── index.js         # エントリーポイント
+├── package.json         # プロジェクト設定
+├── README.md           # このファイル
+└── .gitignore          # Git除外設定
 ```
 
-## 新しいエンドポイントの追加
+## API エンドポイント
 
-新しいAPIエンドポイントを追加する場合：
+### Hello API
+- **URL**: `http://localhost:3000/api/hello`
+- **メソッド**: GET
+- **レスポンス**: 
+  ```json
+  {
+    "message": "Hello, world!"
+  }
+  ```
 
-1. `index.js` にExpressルートを追加
-2. Swagger JSDocコメントを追加してドキュメントを生成
+### Swagger UI
+- **URL**: `http://localhost:3000/api-docs`
+- **説明**: APIドキュメントの確認
 
-**例**:
-```javascript
-/**
- * @swagger
- * /api/users:
- *   get:
- *     summary: ユーザー一覧を取得
- *     tags: [Users]
- *     responses:
- *       200:
- *         description: ユーザー一覧の配列
- */
-app.get('/api/users', (req, res) => {
-    res.json([
-        { id: 1, name: '太郎' },
-        { id: 2, name: '花子' }
-    ]);
-});
+## 開発用スクリプト
+
+```bash
+# 開発サーバー起動
+npm start
+
+# プロダクションビルド
+npm run build
+
+# テスト実行
+npm test
+
+# 設定の退避（通常使用しない）
+npm run eject
 ```
+
+## CORS設定について
+
+NodeSwagger APIサーバーでCORSが適切に設定されている必要があります。開発環境では `localhost:3001` からのアクセスを許可する必要があります。
+
+## トラブルシューティング
+
+### よくある問題
+
+1. **API接続エラー**
+   - NodeSwagger APIサーバーが起動していることを確認
+   - `http://localhost:3000` でアクセス可能か確認
+
+2. **CORS エラー**
+   - APIサーバーのCORS設定を確認
+   - ブラウザの開発者ツールでエラーメッセージを確認
+
+3. **ポートエラー**
+   - デフォルトでReactアプリは3001ポートで起動
+   - 3000ポートはAPIサーバー用に予約
 
 ## 技術スタック
 
-- **Node.js**: JavaScriptランタイム環境
-- **Express.js**: Webアプリケーションフレームワーク
-- **swagger-jsdoc**: JSDocからSwagger仕様を生成
-- **swagger-ui-express**: Express用のSwagger UIミドルウェア
+- **フロントエンド**: React 18, React DOM
+- **ビルドツール**: React Scripts (Create React App)
+- **スタイリング**: CSS3, Flexbox, Grid
+- **HTTP通信**: Fetch API
+- **状態管理**: React Hooks (useState, useEffect)
 
-## 開発のヒント
+## 拡張可能性
 
-1. **APIドキュメントの更新**: コードを変更した後、サーバーを再起動してSwagger UIで最新のドキュメントを確認してください。
+このクライアントは以下の機能を簡単に追加できます：
 
-2. **JSDocコメントの書き方**: Swagger仕様に従ってJSDocコメントを記述することで、自動的にAPIドキュメントが生成されます。
-
-3. **エラーハンドリング**: 本番環境では適切なエラーハンドリングを実装してください。
+- 追加のAPIエンドポイントのテスト
+- 認証機能
+- データの永続化
+- 高度なUI/UXコンポーネント
+- テストケースの追加
 
 ## ライセンス
 
 ISC
 
+## 関連リンク
+
+- [NodeSwagger APIサーバー](../README.md)
+- [React公式ドキュメント](https://reactjs.org/)
+- [Create React App](https://create-react-app.dev/)
+
 ## 作者
 
-作者情報が必要な場合は、`package.json` の author フィールドを更新してください。
-
-## 貢献
-
-このプロジェクトへの貢献を歓迎します。プルリクエストを送信する前に、以下の点をご確認ください：
-
-1. コードが正しく動作することを確認
-2. 新しいエンドポイントには適切なSwagger JSDocコメントを追加
-3. README.md の更新が必要な場合は更新
-
-## 参考リンク
-
-- [Express.js公式ドキュメント](https://expressjs.com/)
-- [Swagger公式ドキュメント](https://swagger.io/)
-- [swagger-jsdoc GitHub](https://github.com/Surnet/swagger-jsdoc)
-- [swagger-ui-express GitHub](https://github.com/scottie1984/swagger-ui-express)
+このプロジェクトは NodeSwagger API のフロントエンドクライアントとして開発されました。
