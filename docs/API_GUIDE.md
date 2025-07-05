@@ -17,6 +17,7 @@
 | エンドポイント | メソッド | 説明 | レスポンス |
 |-------------|---------|------|-----------|
 | `/api/hello` | GET | 簡単なhelloメッセージを返す | `{"message": "Hello, world!"}` |
+| `/api/status` | GET | サーバーのステータス情報を返す | `{"status": "running", "uptime": 123.45, "timestamp": "2024-01-01T12:00:00.000Z", "version": "1.0.0", "environment": "development"}` |
 
 ### 基本的なルート構造
 
