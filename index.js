@@ -32,8 +32,10 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 /**
  * @swagger
  * tags:
- *   name: Hello
- *   description: Hello management
+ *   - name: Hello
+ *     description: Hello management
+ *   - name: Status
+ *     description: Server status information
  */
 
 /**
@@ -49,6 +51,49 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/api/hello', (req, res) => {
     res.json({ message: 'Hello, world!' });
+});
+
+/**
+ * @swagger
+ * /api/status:
+ *   get:
+ *     summary: Returns server status information
+ *     description: サーバーの現在のステータス情報を取得します
+ *     tags: [Status]
+ *     responses:
+ *       200:
+ *         description: Server status information
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   description: サーバーのステータス
+ *                 uptime:
+ *                   type: number
+ *                   description: サーバーの稼働時間（秒）
+ *                 timestamp:
+ *                   type: string
+ *                   format: date-time
+ *                   description: 現在の日時
+ *                 version:
+ *                   type: string
+ *                   description: APIバージョン
+ *                 environment:
+ *                   type: string
+ *                   description: 実行環境
+ */
+
+app.get('/api/status', (req, res) => {
+    res.json({
+        status: 'running',
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString(),
+        version: '1.0.0',
+        environment: process.env.NODE_ENV || 'development'
+    });
 });
 
 app.listen(port, () => {
