@@ -14,7 +14,7 @@ class UserService {
     getUserById(id) {
         const user = this.users.find(u => u.id === id);
         if (!user) {
-            const error = new Error('User not found');
+            const error = new Error('ユーザーが見つかりません');
             error.name = 'NotFoundError';
             throw error;
         }
@@ -36,7 +36,7 @@ class UserService {
     updateUser(id, userData) {
         const userIndex = this.users.findIndex(u => u.id === id);
         if (userIndex === -1) {
-            const error = new Error('User not found');
+            const error = new Error('ユーザーが見つかりません');
             error.name = 'NotFoundError';
             throw error;
         }
@@ -52,13 +52,13 @@ class UserService {
     deleteUser(id) {
         const userIndex = this.users.findIndex(u => u.id === id);
         if (userIndex === -1) {
-            const error = new Error('User not found');
+            const error = new Error('ユーザーが見つかりません');
             error.name = 'NotFoundError';
             throw error;
         }
 
         this.users.splice(userIndex, 1);
-        return { message: 'User deleted successfully' };
+        return { message: 'ユーザーが正常に削除されました' };
     }
 }
 

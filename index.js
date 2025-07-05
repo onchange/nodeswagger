@@ -33,20 +33,20 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  * @swagger
  * tags:
  *   - name: Hello
- *     description: Hello management
+ *     description: Hello メッセージの管理
  *   - name: Status
- *     description: Server status information
+ *     description: サーバーステータス情報
  */
 
 /**
  * @swagger
  * /api/hello:
  *   get:
- *     summary: Returns a hello messageですよえ
+ *     summary: Hello メッセージを返す
  *     tags: [Hello]
  *     responses:
  *       200:
- *         description: A JSON object with hello message
+ *         description: Hello メッセージを含む JSON オブジェクト
  */
 
 app.get('/api/hello', (req, res) => {
@@ -57,12 +57,12 @@ app.get('/api/hello', (req, res) => {
  * @swagger
  * /api/status:
  *   get:
- *     summary: Returns server status information
+ *     summary: サーバーステータス情報を返す
  *     description: サーバーの現在のステータス情報を取得します
  *     tags: [Status]
  *     responses:
  *       200:
- *         description: Server status information
+ *         description: サーバーステータス情報
  *         content:
  *           application/json:
  *             schema:

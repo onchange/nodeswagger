@@ -90,67 +90,67 @@ USER_API_PORT=3001          # ユーザー管理APIポート
 NODE_ENV=development        # 環境（development/production）
 ```
 
-## 📋 API Endpoints
+## 📋 API エンドポイント
 
-### Basic API (Port 3000)
-- `GET /api/hello` - Returns a greeting message
-- `GET /api/status` - Returns server status information
+### 基本的なAPI（ポート3000）
+- `GET /api/hello` - 挨拶メッセージを返す
+- `GET /api/status` - サーバーステータス情報を返す
 
-### User Management API (Port 3001)
-- `GET /api/users` - Get all users
-- `GET /api/users/:id` - Get user by ID
-- `POST /api/users` - Create a new user
-- `PUT /api/users/:id` - Update user by ID
-- `DELETE /api/users/:id` - Delete user by ID
-- `GET /api/health` - Health check endpoint
+### ユーザー管理API（ポート3001）
+- `GET /api/users` - 全ユーザーを取得
+- `GET /api/users/:id` - IDによるユーザー取得
+- `POST /api/users` - 新しいユーザーを作成
+- `PUT /api/users/:id` - IDによるユーザー更新
+- `DELETE /api/users/:id` - IDによるユーザー削除
+- `GET /api/health` - ヘルスチェックエンドポイント
 
-## 🧪 Example Usage
+## 🧪 使用例
 
-### Create a User
+### ユーザーの作成
 ```bash
 curl -X POST http://localhost:3001/api/users \
   -H "Content-Type: application/json" \
   -d '{"name": "John Doe", "email": "john@example.com", "age": 30}'
 ```
 
-### Get All Users
+### 全ユーザーの取得
 ```bash
 curl http://localhost:3001/api/users
 ```
 
-### Update a User
+### ユーザーの更新
 ```bash
 curl -X PUT http://localhost:3001/api/users/1 \
   -H "Content-Type: application/json" \
   -d '{"name": "John Smith", "age": 31}'
 ```
 
-## 🔍 Key Improvements in Refactored Version
+## 🔍 リファクタリング版での主な改善点
 
-1. **Modular Structure**: Separated concerns into dedicated modules
-2. **Reusable Components**: Shared Swagger and Express configuration
-3. **Better Error Handling**: Centralized error management with custom error types
-4. **Input Validation**: Comprehensive validation middleware
-5. **Service Layer**: Business logic separated from route handlers
-6. **Environment Configuration**: Flexible configuration management
-7. **Consistent Code Style**: Standardized naming and structure
-8. **Better Documentation**: Comprehensive API documentation
+1. **モジュラー構造**: 専用モジュールへの関心事の分離
+2. **再利用可能なコンポーネント**: SwaggerとExpressの共通設定
+3. **改善されたエラーハンドリング**: カスタムエラータイプによる集中的なエラー管理
+4. **入力検証**: 包括的な検証ミドルウェア
+5. **サービス層**: ルートハンドラーから分離されたビジネスロジック
+6. **環境設定**: 柔軟な設定管理
+7. **一貫したコードスタイル**: 標準化されたネーミングと構造
+8. **改善されたドキュメント**: 包括的なAPIドキュメント
 
-## 📝 Development Notes
+## 📝 開発ノート
 
-- The legacy `index.js` and `index2.js` files are kept for backward compatibility
-- All new development should use the modular structure in the `src/` directory
-- The application uses in-memory storage for demonstration purposes
-- For production use, consider implementing proper database integration
+- レガシーファイル `index.js` と `index2.js` は後方互換性のため保持されています
+- すべての新しい開発では `src/` ディレクトリのモジュラー構造を使用してください
+- アプリケーションはデモンストレーション目的でインメモリストレージを使用します
+- 本番環境では適切なデータベース統合の実装を検討してください
 
-## 🤝 Contributing
+## 🤝 貢献
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+1. リポジトリをフォーク
+2. 機能ブランチを作成
+3. 変更を行う
+4. 該当する場合はテストを追加
+5. プルリクエストを送信
 
-## 📄 License
+## 📄 ライセンス
 
-This project is licensed under the ISC License.
+このプロジェクトはISCライセンスの下でライセンスされています。

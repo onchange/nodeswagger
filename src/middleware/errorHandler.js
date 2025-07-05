@@ -3,21 +3,21 @@ const errorHandler = (err, req, res, next) => {
 
     if (err.name === 'ValidationError') {
         return res.status(400).json({
-            error: 'Validation Error',
+            error: 'バリデーションエラー',
             details: err.message
         });
     }
 
     if (err.name === 'NotFoundError') {
         return res.status(404).json({
-            error: 'Resource Not Found',
+            error: 'リソースが見つかりません',
             message: err.message
         });
     }
 
     res.status(500).json({
-        error: 'Internal Server Error',
-        message: 'Something went wrong'
+        error: 'サーバー内部エラー',
+        message: '何らかの問題が発生しました'
     });
 };
 

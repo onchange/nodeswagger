@@ -2,8 +2,8 @@ const createApp = require('./app');
 const config = require('./config/environment');
 
 const app = createApp({
-    title: 'Basic API',
-    description: 'A simple Express API with basic endpoints',
+    title: '基本的な API',
+    description: '基本的なエンドポイントを持つシンプルな Express API',
     port: config.server.port,
     apiPaths: ['./src/routes/basicRoutes.js']
 });

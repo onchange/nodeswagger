@@ -6,20 +6,20 @@ const router = express.Router();
  * @swagger
  * tags:
  *   - name: Hello
- *     description: Basic greeting endpoints
+ *     description: 基本的な挨拶エンドポイント
  *   - name: Status
- *     description: Server status information
+ *     description: サーバーステータス情報
  */
 
 /**
  * @swagger
  * /api/hello:
  *   get:
- *     summary: Returns a hello message
+ *     summary: Hello メッセージを返す
  *     tags: [Hello]
  *     responses:
  *       200:
- *         description: A JSON object with hello message
+ *         description: Hello メッセージを含む JSON オブジェクト
  *         content:
  *           application/json:
  *             schema:
@@ -36,12 +36,12 @@ router.get('/hello', (req, res) => {
  * @swagger
  * /api/status:
  *   get:
- *     summary: Returns server status information
- *     description: Get current server status and runtime information
+ *     summary: サーバーステータス情報を返す
+ *     description: 現在のサーバーステータスと実行時情報を取得
  *     tags: [Status]
  *     responses:
  *       200:
- *         description: Server status information
+ *         description: サーバーステータス情報
  *         content:
  *           application/json:
  *             schema:
@@ -49,20 +49,20 @@ router.get('/hello', (req, res) => {
  *               properties:
  *                 status:
  *                   type: string
- *                   description: Server status
+ *                   description: サーバーステータス
  *                 uptime:
  *                   type: number
- *                   description: Server uptime in seconds
+ *                   description: サーバーの稼働時間（秒）
  *                 timestamp:
  *                   type: string
  *                   format: date-time
- *                   description: Current timestamp
+ *                   description: 現在のタイムスタンプ
  *                 version:
  *                   type: string
- *                   description: API version
+ *                   description: APIバージョン
  *                 environment:
  *                   type: string
- *                   description: Runtime environment
+ *                   description: 実行環境
  */
 router.get('/status', (req, res) => {
     res.json({

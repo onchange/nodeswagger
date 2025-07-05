@@ -5,18 +5,18 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Health
- *   description: Health check endpoints
+ *   description: ヘルスチェックエンドポイント
  */
 
 /**
  * @swagger
  * /api/health:
  *   get:
- *     summary: Health check endpoint
+ *     summary: ヘルスチェックエンドポイント
  *     tags: [Health]
  *     responses:
  *       200:
- *         description: Service is healthy
+ *         description: サービスは正常です
  *         content:
  *           application/json:
  *             schema:

@@ -2,8 +2,8 @@ const createApp = require('./app');
 const config = require('./config/environment');
 
 const app = createApp({
-    title: 'User Management API',
-    description: 'A comprehensive User Management API with CRUD operations',
+    title: 'ユーザー管理 API',
+    description: 'CRUD 操作を持つ包括的なユーザー管理 API',
     port: config.server.userApiPort,
     apiPaths: ['./src/routes/userRoutes.js', './src/routes/healthRoutes.js']
 });

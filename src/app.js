@@ -10,8 +10,8 @@ const healthRoutes = require('./routes/healthRoutes');
 
 const createApp = (options = {}) => {
     const {
-        title = 'API Documentation',
-        description = 'RESTful API with Express and Swagger',
+        title = 'API ドキュメント',
+        description = 'Express と Swagger を使用した RESTful API',
         port = config.server.port,
         apiPaths = ['./src/routes/*.js']
     } = options;
@@ -34,7 +34,7 @@ const createApp = (options = {}) => {
     // Root endpoint
     app.get('/', (req, res) => {
         res.json({
-            message: 'API is running',
+            message: 'API が実行中です',
             documentation: `http://localhost:${port}/api-docs`
         });
     });

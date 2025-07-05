@@ -52,16 +52,16 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  *       properties:
  *         id:
  *           type: integer
- *           description: The auto-generated id of the user
+ *           description: ユーザーの自動生成されたID
  *         name:
  *           type: string
- *           description: The user's name
+ *           description: ユーザーの名前
  *         email:
  *           type: string
- *           description: The user's email address
+ *           description: ユーザーのメールアドレス
  *         age:
  *           type: integer
- *           description: The user's age
+ *           description: ユーザーの年齢
  *       example:
  *         id: 1
  *         name: John Doe
@@ -73,18 +73,18 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  * @swagger
  * tags:
  *   name: Users
- *   description: User management operations
+ *   description: ユーザー管理操作
  */
 
 /**
  * @swagger
  * /api/users:
  *   get:
- *     summary: Get all users
+ *     summary: 全ユーザーを取得
  *     tags: [Users]
  *     responses:
  *       200:
- *         description: List of all users
+ *         description: 全ユーザーのリスト
  *         content:
  *           application/json:
  *             schema:
@@ -100,7 +100,7 @@ app.get('/api/users', (req, res) => {
  * @swagger
  * /api/users/{id}:
  *   get:
- *     summary: Get user by ID
+ *     summary: IDでユーザーを取得
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -108,16 +108,16 @@ app.get('/api/users', (req, res) => {
  *         schema:
  *           type: integer
  *         required: true
- *         description: Numeric ID of the user
+ *         description: ユーザーの数値ID
  *     responses:
  *       200:
- *         description: User details
+ *         description: ユーザーの詳細
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
  *       404:
- *         description: User not found
+ *         description: ユーザーが見つかりません
  */
 app.get('/api/users/:id', (req, res) => {
     const userId = parseInt(req.params.id);
@@ -134,7 +134,7 @@ app.get('/api/users/:id', (req, res) => {
  * @swagger
  * /api/users:
  *   post:
- *     summary: Create a new user
+ *     summary: 新しいユーザーを作成
  *     tags: [Users]
  *     requestBody:
  *       required: true
@@ -155,13 +155,13 @@ app.get('/api/users/:id', (req, res) => {
  *                 type: integer
  *     responses:
  *       201:
- *         description: User created successfully
+ *         description: ユーザーが正常に作成されました
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
  *       400:
- *         description: Invalid input
+ *         description: 不正な入力
  */
 app.post('/api/users', (req, res) => {
     const { name, email, age } = req.body;
@@ -185,7 +185,7 @@ app.post('/api/users', (req, res) => {
  * @swagger
  * /api/users/{id}:
  *   put:
- *     summary: Update user by ID
+ *     summary: IDでユーザーを更新
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -193,7 +193,7 @@ app.post('/api/users', (req, res) => {
  *         schema:
  *           type: integer
  *         required: true
- *         description: Numeric ID of the user
+ *         description: ユーザーの数値ID
  *     requestBody:
  *       required: true
  *       content:
@@ -209,13 +209,13 @@ app.post('/api/users', (req, res) => {
  *                 type: integer
  *     responses:
  *       200:
- *         description: User updated successfully
+ *         description: ユーザーが正常に更新されました
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
  *       404:
- *         description: User not found
+ *         description: ユーザーが見つかりません
  */
 app.put('/api/users/:id', (req, res) => {
     const userId = parseInt(req.params.id);
@@ -238,7 +238,7 @@ app.put('/api/users/:id', (req, res) => {
  * @swagger
  * /api/users/{id}:
  *   delete:
- *     summary: Delete user by ID
+ *     summary: IDでユーザーを削除
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -246,12 +246,12 @@ app.put('/api/users/:id', (req, res) => {
  *         schema:
  *           type: integer
  *         required: true
- *         description: Numeric ID of the user
+ *         description: ユーザーの数値ID
  *     responses:
  *       200:
- *         description: User deleted successfully
+ *         description: ユーザーが正常に削除されました
  *       404:
- *         description: User not found
+ *         description: ユーザーが見つかりません
  */
 app.delete('/api/users/:id', (req, res) => {
     const userId = parseInt(req.params.id);
@@ -269,11 +269,11 @@ app.delete('/api/users/:id', (req, res) => {
  * @swagger
  * /api/health:
  *   get:
- *     summary: Health check endpoint
+ *     summary: ヘルスチェックエンドポイント
  *     tags: [Health]
  *     responses:
  *       200:
- *         description: Service is healthy
+ *         description: サービスは正常です
  */
 app.get('/api/health', (req, res) => {
     res.json({ 

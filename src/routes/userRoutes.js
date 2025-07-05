@@ -18,16 +18,16 @@ const userService = new UserService();
  *       properties:
  *         id:
  *           type: integer
- *           description: The auto-generated id of the user
+ *           description: ユーザーの自動生成されたID
  *         name:
  *           type: string
- *           description: The user's name
+ *           description: ユーザーの名前
  *         email:
  *           type: string
- *           description: The user's email address
+ *           description: ユーザーのメールアドレス
  *         age:
  *           type: integer
- *           description: The user's age
+ *           description: ユーザーの年齢
  *       example:
  *         id: 1
  *         name: John Doe
@@ -39,18 +39,18 @@ const userService = new UserService();
  * @swagger
  * tags:
  *   name: Users
- *   description: User management operations
+ *   description: ユーザー管理操作
  */
 
 /**
  * @swagger
  * /api/users:
  *   get:
- *     summary: Get all users
+ *     summary: 全ユーザーを取得
  *     tags: [Users]
  *     responses:
  *       200:
- *         description: List of all users
+ *         description: 全ユーザーのリスト
  *         content:
  *           application/json:
  *             schema:
@@ -71,7 +71,7 @@ router.get('/', (req, res, next) => {
  * @swagger
  * /api/users/{id}:
  *   get:
- *     summary: Get user by ID
+ *     summary: IDでユーザーを取得
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -79,16 +79,16 @@ router.get('/', (req, res, next) => {
  *         schema:
  *           type: integer
  *         required: true
- *         description: Numeric ID of the user
+ *         description: ユーザーの数値ID
  *     responses:
  *       200:
- *         description: User details
+ *         description: ユーザーの詳細
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
  *       404:
- *         description: User not found
+ *         description: ユーザーが見つかりません
  */
 router.get('/:id', (req, res, next) => {
     try {
@@ -104,7 +104,7 @@ router.get('/:id', (req, res, next) => {
  * @swagger
  * /api/users:
  *   post:
- *     summary: Create a new user
+ *     summary: 新しいユーザーを作成
  *     tags: [Users]
  *     requestBody:
  *       required: true
@@ -125,13 +125,13 @@ router.get('/:id', (req, res, next) => {
  *                 type: integer
  *     responses:
  *       201:
- *         description: User created successfully
+ *         description: ユーザーが正常に作成されました
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
  *       400:
- *         description: Invalid input
+ *         description: 不正な入力
  */
 router.post('/', validateUser, (req, res, next) => {
     try {
@@ -146,7 +146,7 @@ router.post('/', validateUser, (req, res, next) => {
  * @swagger
  * /api/users/{id}:
  *   put:
- *     summary: Update user by ID
+ *     summary: IDでユーザーを更新
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -154,7 +154,7 @@ router.post('/', validateUser, (req, res, next) => {
  *         schema:
  *           type: integer
  *         required: true
- *         description: Numeric ID of the user
+ *         description: ユーザーの数値ID
  *     requestBody:
  *       required: true
  *       content:
@@ -170,13 +170,13 @@ router.post('/', validateUser, (req, res, next) => {
  *                 type: integer
  *     responses:
  *       200:
- *         description: User updated successfully
+ *         description: ユーザーが正常に更新されました
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
  *       404:
- *         description: User not found
+ *         description: ユーザーが見つかりません
  */
 router.put('/:id', validateUserUpdate, (req, res, next) => {
     try {
@@ -192,7 +192,7 @@ router.put('/:id', validateUserUpdate, (req, res, next) => {
  * @swagger
  * /api/users/{id}:
  *   delete:
- *     summary: Delete user by ID
+ *     summary: IDでユーザーを削除
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -200,12 +200,12 @@ router.put('/:id', validateUserUpdate, (req, res, next) => {
  *         schema:
  *           type: integer
  *         required: true
- *         description: Numeric ID of the user
+ *         description: ユーザーの数値ID
  *     responses:
  *       200:
- *         description: User deleted successfully
+ *         description: ユーザーが正常に削除されました
  *       404:
- *         description: User not found
+ *         description: ユーザーが見つかりません
  */
 router.delete('/:id', (req, res, next) => {
     try {
