@@ -1,11 +1,15 @@
 {
   "name": "nodeswagger",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Express API with Swagger documentation - Refactored modular structure",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node index.js",
-    "start2": "node index2.js"
+    "start": "node src/server.js",
+    "start:users": "node src/userServer.js",
+    "start:legacy": "node index.js",
+    "start:legacy2": "node index2.js",
+    "dev": "nodemon src/server.js",
+    "dev:users": "nodemon src/userServer.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,8 @@
     "express": "^4.19.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
